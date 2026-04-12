@@ -4,52 +4,137 @@ import { useInView } from 'react-intersection-observer';
 import { FiMail, FiSend, FiPhone, FiMapPin, FiUser, FiMessageSquare } from 'react-icons/fi';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
+const contactInfo = [
+  {
+    icon: FiMail,
+    label: 'Email',
+    value: 'kallappakabbur874@example.com',
+    href: 'mailto:kallappakabbur874@example.com',
+    color: '#64ffda',
+    bg: 'rgba(100,255,218,0.1)',
+  },
+  {
+    icon: FiPhone,
+    label: 'Phone',
+    value: '+91 6361664259',
+    href: 'tel:+919876543210',
+    color: '#a855f7',
+    bg: 'rgba(168,85,247,0.1)',
+  },
+  {
+    icon: FiMapPin,
+    label: 'Location',
+    value: 'India',
+    href: null,
+    color: '#3b82f6',
+    bg: 'rgba(59,130,246,0.1)',
+  },
+];
+
+const socials = [
+  { icon: FaGithub, href: 'https://github.com/kallappa2005', label: 'GitHub', color: '#ccd6f6', hover: '#64ffda' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/kallappa-k-abboor-a9a46329b/', label: 'LinkedIn', color: '#ccd6f6', hover: '#0077b5' },
+  { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter', color: '#ccd6f6', hover: '#1da1f2' },
+];
+
 const Contact = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.08 });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
+  const [focused, setFocused] = useState('');
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend or EmailJS
-    setStatus('Message sent successfully! 🎉');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setStatus(''), 3000);
+    setSending(true);
+    setTimeout(() => {
+      setSending(false);
+      setStatus('Message sent successfully! 🎉 I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setStatus(''), 4000);
+    }, 1500);
   };
 
+  const inputStyle = (field) => ({
+    width: '100%',
+    background: focused === field
+      ? 'rgba(100,255,218,0.05)'
+      : 'rgba(10, 25, 47, 0.6)',
+    border: focused === field
+      ? '1.5px solid rgba(100,255,218,0.5)'
+      : '1.5px solid rgba(255,255,255,0.07)',
+    borderRadius: 12,
+    padding: '14px 16px 14px 48px',
+    color: '#ccd6f6',
+    fontSize: 15,
+    fontFamily: 'Inter, sans-serif',
+    outline: 'none',
+    transition: 'all 0.3s ease',
+    boxShadow: focused === field ? '0 0 20px rgba(100,255,218,0.1)' : 'none',
+  });
+
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0a192f] relative overflow-hidden">\n      {/* Background decoration */}\n      <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-[#64ffda]/5 rounded-full blur-3xl"></div>\n      <div className="absolute bottom-20 right-1/4 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-[1400px] mx-auto relative z-10">
+    <section
+      id="contact"
+      className="mesh-bg-2"
+      style={{ padding: '120px 24px', position: 'relative', overflow: 'hidden' }}
+    >
+      {/* Blobs */}
+      <div style={{
+        position: 'absolute', top: 80, left: '20%', width: 500, height: 500,
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(100,255,218,0.06) 0%, transparent 70%)',
+        filter: 'blur(60px)', pointerEvents: 'none',
+      }} />
+      <div style={{
+        position: 'absolute', bottom: 80, right: '15%', width: 400, height: 400,
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 70%)',
+        filter: 'blur(60px)', pointerEvents: 'none',
+      }} />
+
+      <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
         >
-          {/* Header */}
-          <div className="text-center mb-16">
+          {/* Heading */}
+          <div style={{ textAlign: 'center', marginBottom: 64 }}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                marginBottom: 16,
+                padding: '6px 18px', borderRadius: 100,
+                background: 'rgba(100,255,218,0.08)',
+                border: '1px solid rgba(100,255,218,0.2)',
+              }}
+            >
+              <span style={{
+                fontFamily: 'JetBrains Mono, monospace',
+                color: '#64ffda', fontSize: 13, letterSpacing: 3,
+              }}>04. CONTACT</span>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#64ffda] via-purple-400 to-[#64ffda] bg-clip-text text-transparent"
+              transition={{ delay: 0.1 }}
+              style={{
+                fontSize: 'clamp(36px, 5vw, 56px)',
+                fontWeight: 900, fontFamily: 'Inter, sans-serif',
+                marginBottom: 16,
+                background: 'linear-gradient(135deg, #ffffff 0%, #64ffda 50%, #a855f7 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
             >
               Get In Touch!
             </motion.h2>
@@ -57,209 +142,350 @@ const Contact = () => {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="text-[#8892b0] text-lg max-w-2xl mx-auto leading-relaxed"
+              style={{
+                color: '#8892b0', fontSize: 17, maxWidth: 520,
+                margin: '0 auto', lineHeight: 1.7,
+                fontFamily: 'Inter, sans-serif',
+              }}
             >
-              Have a project in mind or just want to say hello? I'd love to hear from you!
+              Have a project in mind or just want to say hello? I&apos;d love to hear from you!
             </motion.p>
           </div>
 
-          {/* Two Column Layout */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-
-            {/* Left Column - Contact Information */}
+          {/* Two-col layout */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: 32,
+          }}>
+            {/* Left: Info */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -40 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-8"
+              transition={{ duration: 0.7, delay: 0.3 }}
+              style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
             >
               {/* Contact Info Card */}
-              <div className="bg-[#112240]/80 backdrop-blur-md rounded-2xl p-8 border border-[#233554] hover:border-[#64ffda]/30 transition-all duration-300 shadow-xl">
-                <h3 className="text-2xl font-bold text-[#64ffda] mb-8">Contact Information</h3>
-                
-                <div className="space-y-6">
-                  {/* Email */}
-                  <div className="flex items-start space-x-4 group">
-                    <div className="w-12 h-12 rounded-full bg-[#64ffda]/10 flex items-center justify-center group-hover:bg-[#64ffda]/20 transition-all duration-300">
-                      <FiMail className="text-[#64ffda] text-xl" />
-                    </div>
-                    <div>
-                      <p className="text-[#8892b0] text-sm mb-1">Email</p>
-                      <a href="mailto:your.email@example.com" className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors font-medium">
-                        your.email@example.com
-                      </a>
-                    </div>
-                  </div>
+              <div
+                className="glass"
+                style={{
+                  borderRadius: 20, padding: 28,
+                  border: '1.5px solid rgba(100,255,218,0.1)',
+                }}
+              >
+                <h3 style={{
+                  color: '#64ffda', fontWeight: 700, fontSize: 18,
+                  fontFamily: 'Inter, sans-serif', marginBottom: 24,
+                  display: 'flex', alignItems: 'center', gap: 8,
+                }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: '50%',
+                    background: '#64ffda',
+                    display: 'inline-block',
+                    boxShadow: '0 0 8px #64ffda',
+                  }} />
+                  Contact Information
+                </h3>
 
-                  {/* Phone */}
-                  <div className="flex items-start space-x-4 group">
-                    <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-all duration-300">
-                      <FiPhone className="text-purple-400 text-xl" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                  {contactInfo.map((info) => (
+                    <div
+                      key={info.label}
+                      style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}
+                    >
+                      <div style={{
+                        width: 42, height: 42, borderRadius: 12,
+                        background: info.bg,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        flexShrink: 0,
+                        border: `1px solid ${info.color}25`,
+                      }}>
+                        <info.icon style={{ color: info.color, fontSize: 18 }} />
+                      </div>
+                      <div>
+                        <p style={{
+                          color: '#8892b0', fontSize: 12, marginBottom: 4,
+                          fontFamily: 'Inter, sans-serif', fontWeight: 500,
+                          textTransform: 'uppercase', letterSpacing: 1,
+                        }}>{info.label}</p>
+                        {info.href ? (
+                          <a
+                            href={info.href}
+                            style={{
+                              color: '#ccd6f6', fontFamily: 'Inter, sans-serif',
+                              fontSize: 15, fontWeight: 500, textDecoration: 'none',
+                              transition: 'color 0.2s',
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.color = info.color}
+                            onMouseLeave={e => e.currentTarget.style.color = '#ccd6f6'}
+                          >
+                            {info.value}
+                          </a>
+                        ) : (
+                          <p style={{
+                            color: '#ccd6f6', fontFamily: 'Inter, sans-serif',
+                            fontSize: 15, fontWeight: 500,
+                          }}>{info.value}</p>
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[#8892b0] text-sm mb-1">Phone</p>
-                      <a href="tel:+1234567890" className="text-[#ccd6f6] hover:text-[#64ffda] transition-colors font-medium">
-                        +1 (234) 567-890
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Location */}
-                  <div className="flex items-start space-x-4 group">
-                    <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-all duration-300">
-                      <FiMapPin className="text-blue-400 text-xl" />
-                    </div>
-                    <div>
-                      <p className="text-[#8892b0] text-sm mb-1">Location</p>
-                      <p className="text-[#ccd6f6] font-medium">Your City, Country</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Divider */}
-                <div className="my-8 h-px bg-gradient-to-r from-transparent via-[#233554] to-transparent"></div>
+                <div style={{
+                  height: 1, margin: '28px 0',
+                  background: 'linear-gradient(90deg, transparent, rgba(100,255,218,0.2), transparent)',
+                }} />
 
-                {/* Social Links */}
+                {/* Socials */}
+                <p style={{
+                  color: '#8892b0', fontSize: 12, fontFamily: 'Inter, sans-serif',
+                  fontWeight: 500, letterSpacing: 1, textTransform: 'uppercase',
+                  marginBottom: 16,
+                }}>Follow me on</p>
+                <div style={{ display: 'flex', gap: 12 }}>
+                  {socials.map((s) => (
+                    <motion.a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.label}
+                      whileHover={{ scale: 1.12, y: -4 }}
+                      whileTap={{ scale: 0.92 }}
+                      style={{
+                        width: 44, height: 44, borderRadius: 12,
+                        background: 'rgba(10,25,47,0.6)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        color: s.color, textDecoration: 'none',
+                        transition: 'all 0.25s ease',
+                        fontSize: 18,
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.color = s.hover;
+                        e.currentTarget.style.borderColor = s.hover + '60';
+                        e.currentTarget.style.background = s.hover + '15';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.color = s.color;
+                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                        e.currentTarget.style.background = 'rgba(10,25,47,0.6)';
+                      }}
+                    >
+                      <s.icon />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Availability badge */}
+              <div
+                className="glass"
+                style={{
+                  borderRadius: 16, padding: '16px 24px',
+                  border: '1px solid rgba(100,255,218,0.15)',
+                  display: 'flex', alignItems: 'center', gap: 14,
+                }}
+              >
+                <div style={{ position: 'relative' }}>
+                  <div style={{
+                    width: 12, height: 12, borderRadius: '50%',
+                    background: '#22c55e',
+                    boxShadow: '0 0 10px rgba(34,197,94,0.6)',
+                  }} />
+                  <div style={{
+                    position: 'absolute', inset: -3,
+                    borderRadius: '50%', background: 'rgba(34,197,94,0.2)',
+                    animation: 'pulseDot 2s ease-in-out infinite',
+                  }} />
+                </div>
                 <div>
-                  <p className="text-[#8892b0] text-sm mb-4">Follow me on</p>
-                  <div className="flex space-x-4">
-                    <a
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full bg-[#0a192f] border border-[#233554] flex items-center justify-center hover:border-[#64ffda] hover:bg-[#64ffda]/10 transition-all duration-300 group"
-                    >
-                      <FaGithub className="text-[#8892b0] group-hover:text-[#64ffda] text-xl transition-colors" />
-                    </a>
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full bg-[#0a192f] border border-[#233554] flex items-center justify-center hover:border-blue-400 hover:bg-blue-400/10 transition-all duration-300 group"
-                    >
-                      <FaLinkedin className="text-[#8892b0] group-hover:text-blue-400 text-xl transition-colors" />
-                    </a>
-                    <a
-                      href="https://twitter.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-full bg-[#0a192f] border border-[#233554] flex items-center justify-center hover:border-[#64ffda] hover:bg-[#64ffda]/10 transition-all duration-300 group"
-                    >
-                      <FaTwitter className="text-[#8892b0] group-hover:text-[#64ffda] text-xl transition-colors" />
-                    </a>
-                  </div>
+                  <p style={{
+                    color: '#22c55e', fontWeight: 700, fontSize: 14,
+                    fontFamily: 'Inter, sans-serif',
+                  }}>Available for freelance</p>
+                  <p style={{
+                    color: '#8892b0', fontSize: 12,
+                    fontFamily: 'Inter, sans-serif',
+                  }}>Open to new opportunities</p>
                 </div>
               </div>
             </motion.div>
-            {/* Right Column - Contact Form */}
+
+            {/* Right: Form */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 40 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
             >
-              <div className="bg-[#112240]/80 backdrop-blur-md rounded-2xl p-8 border border-[#233554] hover:border-[#64ffda]/30 transition-all duration-300 shadow-xl">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Field */}
+              <div
+                className="glass"
+                style={{
+                  borderRadius: 20, padding: 32,
+                  border: '1.5px solid rgba(100,255,218,0.1)',
+                }}
+              >
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+
+                  {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block text-[#ccd6f6] mb-2 font-medium">
-                      Name
-                    </label>
-                    <div className="relative">
-                      <FiUser className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8892b0]" />
+                    <label style={{
+                      display: 'block', color: '#ccd6f6', marginBottom: 8,
+                      fontSize: 14, fontWeight: 500, fontFamily: 'Inter, sans-serif',
+                    }}>Name</label>
+                    <div style={{ position: 'relative' }}>
+                      <FiUser style={{
+                        position: 'absolute', left: 16, top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: focused === 'name' ? '#64ffda' : '#8892b0',
+                        fontSize: 16, transition: 'color 0.3s',
+                      }} />
                       <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full pl-12 pr-4 py-3.5 bg-[#0a192f]/50 border border-[#233554] rounded-xl text-[#ccd6f6] focus:border-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda]/20 transition-all duration-300 placeholder-[#8892b0]"  
-                        placeholder="Your Name"
+                        type="text" id="name" name="name"
+                        value={formData.name} onChange={handleChange}
+                        required placeholder="Your Name"
+                        onFocus={() => setFocused('name')}
+                        onBlur={() => setFocused('')}
+                        style={inputStyle('name')}
                       />
                     </div>
                   </div>
 
-                  {/* Email Field */}
+                  {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-[#ccd6f6] mb-2 font-medium">
-                      Email
-                    </label>
-                    <div className="relative">
-                      <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8892b0]" />
+                    <label style={{
+                      display: 'block', color: '#ccd6f6', marginBottom: 8,
+                      fontSize: 14, fontWeight: 500, fontFamily: 'Inter, sans-serif',
+                    }}>Email</label>
+                    <div style={{ position: 'relative' }}>
+                      <FiMail style={{
+                        position: 'absolute', left: 16, top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: focused === 'email' ? '#64ffda' : '#8892b0',
+                        fontSize: 16, transition: 'color 0.3s',
+                      }} />
                       <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full pl-12 pr-4 py-3.5 bg-[#0a192f]/50 border border-[#233554] rounded-xl text-[#ccd6f6] focus:border-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda]/20 transition-all duration-300 placeholder-[#8892b0]"
-                        placeholder="your.email@example.com"
+                        type="email" id="email" name="email"
+                        value={formData.email} onChange={handleChange}
+                        required placeholder="your.email@example.com"
+                        onFocus={() => setFocused('email')}
+                        onBlur={() => setFocused('')}
+                        style={inputStyle('email')}
                       />
                     </div>
                   </div>
 
-                  {/* Subject Field */}
+                  {/* Subject */}
                   <div>
-                    <label htmlFor="subject" className="block text-[#ccd6f6] mb-2 font-medium">
-                      Subject
-                    </label>
-                    <div className="relative">
-                      <FiMessageSquare className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8892b0]" />
+                    <label style={{
+                      display: 'block', color: '#ccd6f6', marginBottom: 8,
+                      fontSize: 14, fontWeight: 500, fontFamily: 'Inter, sans-serif',
+                    }}>Subject</label>
+                    <div style={{ position: 'relative' }}>
+                      <FiMessageSquare style={{
+                        position: 'absolute', left: 16, top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: focused === 'subject' ? '#64ffda' : '#8892b0',
+                        fontSize: 16, transition: 'color 0.3s',
+                      }} />
                       <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                        className="w-full pl-12 pr-4 py-3.5 bg-[#0a192f]/50 border border-[#233554] rounded-xl text-[#ccd6f6] focus:border-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda]/20 transition-all duration-300 placeholder-[#8892b0]"
-                        placeholder="What's this about?"
+                        type="text" id="subject" name="subject"
+                        value={formData.subject} onChange={handleChange}
+                        required placeholder="What's this about?"
+                        onFocus={() => setFocused('subject')}
+                        onBlur={() => setFocused('')}
+                        style={inputStyle('subject')}
                       />
                     </div>
                   </div>
 
-                  {/* Message Field */}
+                  {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-[#ccd6f6] mb-2 font-medium">
-                      Message
-                    </label>
-                    <div className="relative">
-                      <FiMessageSquare className="absolute left-4 top-4 text-[#8892b0]" />
+                    <label style={{
+                      display: 'block', color: '#ccd6f6', marginBottom: 8,
+                      fontSize: 14, fontWeight: 500, fontFamily: 'Inter, sans-serif',
+                    }}>Message</label>
+                    <div style={{ position: 'relative' }}>
+                      <FiMessageSquare style={{
+                        position: 'absolute', left: 16, top: 18,
+                        color: focused === 'message' ? '#64ffda' : '#8892b0',
+                        fontSize: 16, transition: 'color 0.3s',
+                      }} />
                       <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                        rows="5"
-                        className="w-full pl-12 pr-4 py-3.5 bg-[#0a192f]/50 border border-[#233554] rounded-xl text-[#ccd6f6] focus:border-[#64ffda] focus:outline-none focus:ring-2 focus:ring-[#64ffda]/20 transition-all duration-300 resize-none placeholder-[#8892b0]"
-                        placeholder="Your message here..."
+                        id="message" name="message"
+                        value={formData.message} onChange={handleChange}
+                        required rows={5}
+                        placeholder="Tell me about your project..."
+                        onFocus={() => setFocused('message')}
+                        onBlur={() => setFocused('')}
+                        style={{
+                          ...inputStyle('message'),
+                          resize: 'vertical',
+                          minHeight: 130,
+                          paddingTop: 16,
+                        }}
                       />
                     </div>
                   </div>
 
-                  {/* Status Message */}
+                  {/* Status */}
                   {status && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-[#64ffda] text-center font-medium bg-[#64ffda]/10 py-2 rounded-lg"
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      style={{
+                        padding: '12px 20px', borderRadius: 12,
+                        background: 'rgba(100,255,218,0.1)',
+                        border: '1px solid rgba(100,255,218,0.3)',
+                        color: '#64ffda',
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: 14, textAlign: 'center',
+                      }}
                     >
                       {status}
-                    </motion.p>
+                    </motion.div>
                   )}
 
-                  {/* Submit Button */}
+                  {/* Submit */}
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 bg-gradient-to-r from-[#64ffda] to-purple-500 text-white rounded-xl font-bold text-lg flex items-center justify-center space-x-2 hover:shadow-[0_0_30px_rgba(100,255,218,0.4)] transition-all duration-300 relative overflow-hidden group"
+                    disabled={sending}
+                    whileHover={!sending ? { scale: 1.02, boxShadow: '0 0 30px rgba(100,255,218,0.4)' } : {}}
+                    whileTap={!sending ? { scale: 0.98 } : {}}
+                    style={{
+                      width: '100%', padding: '15px 24px',
+                      borderRadius: 12, border: 'none',
+                      cursor: sending ? 'wait' : 'pointer',
+                      background: sending
+                        ? 'rgba(100,255,218,0.3)'
+                        : 'linear-gradient(135deg, #64ffda 0%, #a855f7 100%)',
+                      color: sending ? '#ccd6f6' : '#0a192f',
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: 16, fontWeight: 700,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                      transition: 'all 0.3s ease',
+                      boxShadow: '0 4px 20px rgba(100,255,218,0.2)',
+                    }}
                   >
-                    <span className="relative z-10">Send Message</span>
-                    <FiSend className="relative z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-[#64ffda] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    {sending ? (
+                      <>
+                        <div style={{
+                          width: 18, height: 18,
+                          border: '2px solid rgba(255,255,255,0.3)',
+                          borderTop: '2px solid #ccd6f6',
+                          borderRadius: '50%',
+                          animation: 'spin 1s linear infinite',
+                        }} />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <FiSend size={18} />
+                      </>
+                    )}
                   </motion.button>
                 </form>
               </div>

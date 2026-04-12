@@ -1,179 +1,356 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Stars } from '@react-three/drei';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiTwitter } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { FiGithub, FiLinkedin, FiMail, FiTwitter, FiArrowDown } from 'react-icons/fi';
 
-const AnimatedSphere = () => {
-  return (
-    <Sphere args={[1, 100, 200]} scale={2.8}>
-      <MeshDistortMaterial
-        color="#64ffda"
-        attach="material"
-        distort={0.6}
-        speed={1.5}
-        roughness={0}
-        metalness={0.8}
-      />
-    </Sphere>
-  );
-};
+const AnimatedSphere = () => (
+  <Sphere args={[1, 100, 200]} scale={2.6}>
+    <MeshDistortMaterial
+      color="#64ffda"
+      attach="material"
+      distort={0.55}
+      speed={1.8}
+      roughness={0}
+      metalness={0.9}
+      wireframe={false}
+    />
+  </Sphere>
+);
+
+const ROLES = [
+  'Full Stack Developer',
+  'Machine Learning Engineer',
+  'MLOps Engineer',
+  'DevOps Engineer',
+];
 
 const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    let timeout;
+    const role = ROLES[roleIndex];
+    if (typing) {
+      if (displayed.length < role.length) {
+        timeout = setTimeout(() => setDisplayed(role.slice(0, displayed.length + 1)), 60);
+      } else {
+        timeout = setTimeout(() => setTyping(false), 2000);
+      }
+    } else {
+      if (displayed.length > 0) {
+        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
+      } else {
+        setRoleIndex((i) => (i + 1) % ROLES.length);
+        setTyping(true);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [displayed, typing, roleIndex]);
+
+  const socials = [
+    { icon: FiGithub, href: 'https://github.com/kallappa2005', label: 'GitHub' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor-a9a46329b/', label: 'LinkedIn' },
+    { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: FiMail, href: 'mailto:kallappakabbur874@email.com', label: 'Email' },
+  ];
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+      }}
     >
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
+      {/* 3D Canvas */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Canvas camera={{ position: [0, 0, 5] }}>
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.6} />
           <directionalLight position={[10, 10, 5]} intensity={2} />
-          <pointLight position={[-10, -10, -5]} color="#64ffda" intensity={1} />
-          <Stars
-            radius={100}
-            depth={50}
-            count={8000}
-            factor={6}
-            saturation={0}
-            fade
-            speed={1}
-          />
+          <pointLight position={[-10, -10, -5]} color="#64ffda" intensity={1.5} />
+          <pointLight position={[10, -5, 5]} color="#a855f7" intensity={0.8} />
+          <Stars radius={120} depth={60} count={8000} factor={6} saturation={0} fade speed={0.8} />
           <AnimatedSphere />
-          <OrbitControls
-            enableZoom={false}
-            autoRotate
-            autoRotateSpeed={0.8}
-            enablePan={false}
-          />
+          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.6} enablePan={false} />
         </Canvas>
       </div>
 
-      {/* Enhanced Double Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f]/70 via-[#0a192f]/50 to-[#0a192f] z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(100,255,218,0.15)_0%,transparent_70%)] z-0"></div>
+      {/* Gradient overlays */}
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 1,
+        background: 'linear-gradient(to bottom, rgba(10,25,47,0.6) 0%, rgba(10,25,47,0.4) 40%, rgba(10,25,47,0.95) 100%)',
+      }} />
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 1,
+        background: 'radial-gradient(ellipse at center, rgba(100,255,218,0.08) 0%, transparent 65%)',
+      }} />
+
+      {/* Grid pattern overlay */}
+      <div className="grid-pattern" style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.4 }} />
+
+      {/* Floating ambient orbs */}
+      <div className="animate-orb1" style={{
+        position: 'absolute', width: 500, height: 500, borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(100,255,218,0.06) 0%, transparent 70%)',
+        top: '10%', left: '5%', zIndex: 1, filter: 'blur(30px)',
+      }} />
+      <div className="animate-orb2" style={{
+        position: 'absolute', width: 400, height: 400, borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 70%)',
+        bottom: '15%', right: '8%', zIndex: 1, filter: 'blur(30px)',
+      }} />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div style={{
+        position: 'relative', zIndex: 10,
+        maxWidth: 1000, margin: '0 auto',
+        padding: '0 24px', textAlign: 'center',
+      }}>
+        {/* Greeting */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 10,
+            marginBottom: 20,
+            padding: '6px 18px', borderRadius: 100,
+            background: 'rgba(100,255,218,0.08)',
+            border: '1px solid rgba(100,255,218,0.2)',
+            backdropFilter: 'blur(10px)',
+          }}
         >
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-[#64ffda] font-mono mb-6 text-lg md:text-xl tracking-widest uppercase"
-          >
+          <span style={{
+            width: 8, height: 8, borderRadius: '50%', background: '#64ffda',
+            display: 'inline-block',
+            animation: 'pulseDot 1.5s ease-in-out infinite',
+          }} />
+          <span style={{
+            color: '#64ffda',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: 13,
+            letterSpacing: 3,
+            textTransform: 'uppercase',
+          }}>
             Hi, my name is
-          </motion.p>
+          </span>
+        </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-tight"
-            style={{
-              background: 'linear-gradient(135deg, #ccd6f6 0%, #64ffda 50%, #ccd6f6 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              filter: 'drop-shadow(0 0 40px rgba(100, 255, 218, 0.5))',
-            }}
-          >
-            Your Name
-          </motion.h1>
+        {/* Name */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+          style={{
+            fontSize: 'clamp(52px, 10vw, 100px)',
+            fontWeight: 900,
+            lineHeight: 1.05,
+            marginBottom: 16,
+            fontFamily: 'Inter, sans-serif',
+            background: 'linear-gradient(135deg, #ffffff 0%, #ccd6f6 40%, #64ffda 80%)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0 0 40px rgba(100,255,218,0.25))',
+          }}
+        >
+          Kallappa
+        </motion.h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8"
-            style={{
-              background: 'linear-gradient(90deg, #8892b0 0%, #64ffda 100%)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            I build amazing 3D experiences
-          </motion.h2>
+        {/* Typewriter Role */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          style={{ marginBottom: 24, minHeight: 60 }}
+        >
+          <span style={{
+            fontSize: 'clamp(20px, 4vw, 36px)',
+            fontWeight: 700,
+            fontFamily: 'Inter, sans-serif',
+            background: 'linear-gradient(90deg, #8892b0, #a855f7)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}>
+            I am{' '}
+          </span>
+          <span style={{
+            fontSize: 'clamp(20px, 4vw, 36px)',
+            fontWeight: 700,
+            fontFamily: 'Inter, sans-serif',
+            color: '#64ffda',
+            textShadow: '0 0 20px rgba(100,255,218,0.5)',
+          }}>
+            {displayed}
+          </span>
+          <span style={{
+            fontSize: 'clamp(20px, 4vw, 36px)',
+            fontWeight: 300,
+            color: '#64ffda',
+            animation: 'blink 0.9s step-end infinite',
+            marginLeft: 2,
+          }}>|</span>
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-[#8892b0] max-w-3xl mx-auto mb-14 text-lg md:text-xl leading-relaxed px-4"
-          >
-            I'm a full-stack developer specializing in building exceptional digital experiences.
-            Currently, I'm focused on creating interactive 3D web applications that push the boundaries of web technology.
-          </motion.p>
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+          style={{
+            color: '#8892b0',
+            maxWidth: 600,
+            margin: '0 auto 40px',
+            fontSize: 'clamp(15px, 2vw, 18px)',
+            lineHeight: 1.8,
+            fontFamily: 'Inter, sans-serif',
+          }}
+        >
+          A full-stack developer passionate about building exceptional digital experiences.
+          Specializing in interactive 3D web applications and scalable backend systems.
+        </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="flex justify-center space-x-8 mb-14"
-          >
-            {[
-              { icon: FiGithub, href: 'https://github.com' },
-              { icon: FiLinkedin, href: 'https://linkedin.com' },
-              { icon: FiTwitter, href: 'https://twitter.com' },
-              { icon: FiMail, href: 'mailto:your.email@example.com' },
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.25, y: -10 }}
-                whileTap={{ scale: 0.9 }}
-                className="relative group"
-              >
-                <div className="text-[#8892b0] hover:text-[#64ffda] transition-colors duration-300 relative z-10">
-                  <social.icon size={38} strokeWidth={1.5} />
-                </div>
-                <div className="absolute inset-0 bg-[#64ffda]/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 scale-150"></div>
-              </motion.a>
-            ))}
-          </motion.div>
+        {/* Social Icons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          style={{ display: 'flex', justifyContent: 'center', gap: 20, marginBottom: 48 }}
+        >
+          {socials.map((s, i) => (
+            <motion.a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.9 + i * 0.08 }}
+              whileHover={{ scale: 1.2, y: -6 }}
+              whileTap={{ scale: 0.9 }}
+              style={{
+                width: 48, height: 48, borderRadius: 12,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: 'rgba(100,255,218,0.06)',
+                border: '1px solid rgba(100,255,218,0.15)',
+                color: '#8892b0',
+                textDecoration: 'none',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
+              className="social-btn"
+            >
+              <s.icon size={20} />
+              {/* Hover glow */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(135deg, rgba(100,255,218,0.15), rgba(168,85,247,0.15))',
+                opacity: 0, transition: 'opacity 0.3s',
+                borderRadius: 12,
+              }} />
+            </motion.a>
+          ))}
+        </motion.div>
 
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}
+        >
           <motion.a
             href="#projects"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            whileHover={{ scale: 1.08, boxShadow: '0 0 60px rgba(100, 255, 218, 0.6)' }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block px-12 py-6 border-2 border-[#64ffda] text-[#64ffda] rounded-xl bg-[#64ffda]/5 hover:bg-[#64ffda]/10 transition-all duration-300 font-mono text-lg font-bold relative overflow-hidden group shadow-[0_0_30px_rgba(100,255,218,0.3)]"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(100,255,218,0.5)' }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              textDecoration: 'none',
+              padding: '14px 36px',
+              borderRadius: 12,
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: 15,
+              fontWeight: 600,
+              color: '#0a192f',
+              background: 'linear-gradient(135deg, #64ffda 0%, #52e4c2 100%)',
+              boxShadow: '0 0 20px rgba(100,255,218,0.3)',
+              letterSpacing: 1,
+              position: 'relative',
+              overflow: 'hidden',
+            }}
           >
-            <span className="relative z-10">Check out my work!</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#64ffda]/0 via-[#64ffda]/10 to-[#64ffda]/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            View My Work
+          </motion.a>
+
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(168,85,247,0.4)' }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              textDecoration: 'none',
+              padding: '14px 36px',
+              borderRadius: 12,
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: 15,
+              fontWeight: 600,
+              color: '#ccd6f6',
+              background: 'rgba(168,85,247,0.1)',
+              border: '1.5px solid rgba(168,85,247,0.4)',
+              letterSpacing: 1,
+            }}
+          >
+            Get In Touch
           </motion.a>
         </motion.div>
       </div>
 
-      {/* Enhanced Scroll Indicator */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20"
+        transition={{ delay: 1.5 }}
+        style={{
+          position: 'absolute', bottom: 36,
+          left: '50%', transform: 'translateX(-50%)',
+          zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
+        }}
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}
         >
-          <div className="w-8 h-14 border-2 border-[#64ffda] rounded-full flex justify-center p-2 shadow-[0_0_20px_rgba(100,255,218,0.4)]">
+          <div style={{
+            width: 28, height: 46, borderRadius: 14,
+            border: '2px solid rgba(100,255,218,0.4)',
+            display: 'flex', justifyContent: 'center', padding: '6px 0',
+          }}>
             <motion.div
-              animate={{ y: [0, 20, 0], opacity: [1, 0, 1] }}
+              animate={{ y: [0, 16, 0], opacity: [1, 0, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
-              className="w-2 h-2 bg-[#64ffda] rounded-full shadow-[0_0_10px_rgba(100,255,218,0.8)]"
+              style={{
+                width: 4, height: 4, borderRadius: '50%',
+                background: '#64ffda',
+                boxShadow: '0 0 8px rgba(100,255,218,0.8)',
+              }}
             />
           </div>
-          <span className="text-[#64ffda] text-xs font-mono">Scroll</span>
+          <span style={{
+            color: '#64ffda',
+            fontSize: 10,
+            fontFamily: 'JetBrains Mono, monospace',
+            letterSpacing: 2,
+            textTransform: 'uppercase',
+            opacity: 0.7,
+          }}>Scroll</span>
         </motion.div>
       </motion.div>
     </section>
