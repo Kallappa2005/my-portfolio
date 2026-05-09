@@ -8,7 +8,7 @@ import {
   SiTailwindcss, SiMongodb, SiTypescript,
   SiPostgresql, SiFlask, SiExpress,
   SiKubernetes, SiPrometheus, SiTerraform, SiGithubactions,
-  SiMlflow,
+  SiMlflow, SiGrafana,
 } from 'react-icons/si';
 
 
@@ -106,6 +106,7 @@ const skillCategories = [
       { name: 'Docker',         icon: FaDocker,        color: '#2496ED', type: 'icon' },
       { name: 'Kubernetes',     icon: SiKubernetes,    color: '#326CE5', type: 'icon' },
       { name: 'Prometheus',     icon: SiPrometheus,    color: '#E6522C', type: 'icon' },
+      { name: 'Grafana',        icon: SiGrafana,       color: '#F46800', type: 'icon' },
       { name: 'Loki',           icon: null,            color: '#F5A623', type: 'text', text: 'Loki' },
       { name: 'Terraform',      icon: SiTerraform,     color: '#7B42BC', type: 'icon' },
       { name: 'AWS',            icon: FaAws,           color: '#FF9900', type: 'icon' },

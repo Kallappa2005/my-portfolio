@@ -76,7 +76,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
           >
             <span style={{ color: '#8892b0' }}>&lt;</span>
-            <span className="gradient-text-teal">Portfolio</span>
+            <span className="gradient-text-teal">Kallappa</span>
             <span style={{ color: '#8892b0' }}>/&gt;</span>
           </motion.a>
 

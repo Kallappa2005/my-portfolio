@@ -2,17 +2,16 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const stats = [
-  { value: '3+',  label: 'Years Experience' },
+  { value: '3+', label: 'Years Experience' },
   { value: '20+', label: 'Projects Built' },
   { value: '10+', label: 'Technologies' },
-  { value: '∞',   label: 'Passion' },
+  { value: '∞', label: 'Passion' },
 ];
 
 const skills = [
   'JavaScript (ES6+)',
   'React.js',
   'Node.js',
-  'Three.js',
   'TypeScript',
   'Next.js',
   'Tailwind CSS',
