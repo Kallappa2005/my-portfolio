@@ -166,14 +166,19 @@ const About = () => {
                     position: 'absolute', inset: 0,
                     background: 'linear-gradient(135deg, rgba(100,255,218,0.1) 0%, rgba(17,34,64,0.8) 50%, rgba(168,85,247,0.1) 100%)',
                   }} />
-                  <span style={{
-                    fontSize: 100,
-                    position: 'relative', zIndex: 1,
-                    animation: 'float 5s ease-in-out infinite',
-                    filter: 'drop-shadow(0 0 30px rgba(100,255,218,0.4))',
-                  }}>
-                    👨‍💻
-                  </span>
+                  <img
+                    src="/My%20Photo.jpg"
+                    alt="Profile"
+                    style={{
+                      width: '72%',
+                      height: '72%',
+                      objectFit: 'cover',
+                      borderRadius: 12,
+                      position: 'relative', zIndex: 1,
+                      boxShadow: '0 12px 40px rgba(0,0,0,0.45)',
+                      transform: 'translateY(0)',
+                    }}
+                  />
                   {/* Corner accents */}
                   <div style={{
                     position: 'absolute', top: 0, left: 0,
