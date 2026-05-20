@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial, Stars } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { FiGithub, FiLinkedin, FiMail, FiTwitter, FiArrowDown } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiArrowDown } from 'react-icons/fi';
 
 const AnimatedSphere = () => (
   <Sphere args={[1, 100, 200]} scale={2.6}>
@@ -53,7 +53,6 @@ const Hero = () => {
   const socials = [
     { icon: FiGithub, href: 'https://github.com/kallappa2005', label: 'GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor-a9a46329b/', label: 'LinkedIn' },
-    { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter' },
     { icon: FiMail, href: 'mailto:kallappakabbur874@email.com', label: 'Email' },
   ];
 

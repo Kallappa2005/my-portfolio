@@ -5,8 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navItems = [
   { name: 'Home',     href: '#home' },
   { name: 'About',    href: '#about' },
+  { name: 'Experience', href: '#experience' },
   { name: 'Skills',   href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Open Source', href: '#opensource' },
   { name: 'Contact',  href: '#contact' },
 ];
 
@@ -20,7 +22,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 60);
 
       // Active section detection
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'opensource', 'contact'];
       const current = sections.find(id => {
         const el = document.getElementById(id);
         if (!el) return false;

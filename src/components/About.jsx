@@ -1,25 +1,25 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const stats = [
-  { value: '3+', label: 'Years Experience' },
-  { value: '20+', label: 'Projects Built' },
-  { value: '10+', label: 'Technologies' },
-  { value: '∞', label: 'Passion' },
-];
-
 const skills = [
-  'JavaScript (ES6+)',
+  'MERN Stack',
+  'Machine Learning',
+  'MLOps',
+  'DevOps',
+  'Agentic AI',
   'React.js',
   'Node.js',
-  'TypeScript',
-  'Next.js',
-  'Tailwind CSS',
-  'MongoDB',
+  'Python',
 ];
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
+  const stats = [
+    { value: '1+', label: 'Year Experience' },
+    { value: '8+', label: 'Projects' },
+    { value: `${skills.length}+`, label: 'Technologies' },
+    { value: '3rd Year', label: 'B.Tech CSE @ REVA' },
+  ];
 
   return (
     <section
@@ -79,9 +79,9 @@ const About = () => {
             >
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
                 {[
-                  `Hello! I'm a passionate developer who loves creating things that live on the internet. My interest in web development started back in 2021 when I decided to try building my first website — turns out hacking together a custom website taught me a lot about HTML & CSS!`,
-                  `Fast-forward to today, and I've had the privilege of working on various projects ranging from e-commerce platforms to interactive 3D experiences. My main focus these days is building accessible, inclusive products and digital experiences with cutting-edge technology.`,
-                  `I'm particularly excited about the intersection of creativity and technology, especially in 3D web experiences using Three.js and React Three Fiber.`,
+                  `I am a passionate developer with experience in MERN stack, machine learning, MLOps, DevOps, and agentic AI. I enjoy building practical products that combine strong engineering with useful automation.`,
+                  `I am currently a 3rd year B.Tech student studying Computer Science and Engineering at REVA University, and I like learning by building real projects end to end.`,
+                  `My focus is on creating scalable, clean, and production-ready applications while improving my skills across full-stack development and intelligent systems.`,
                 ].map((text, i) => (
                   <motion.p
                     key={i}
@@ -104,7 +104,7 @@ const About = () => {
                 color: '#ccd6f6', fontWeight: 600, fontSize: 17,
                 marginBottom: 20, fontFamily: 'Inter, sans-serif',
               }}>
-                Technologies I've been working with recently:
+                Technologies I work with:
               </p>
               <ul style={{
                 display: 'grid',

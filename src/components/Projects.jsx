@@ -6,65 +6,65 @@ import { HiSparkles } from 'react-icons/hi';
 
 const projects = [
   {
-    title: '3D Portfolio Website',
+    title: 'E-Commerce Platform (MERN)',
     description:
-      'A stunning 3D portfolio website built with React, Three.js, and Framer Motion. Features interactive 3D models, smooth animations, and responsive design.',
-    tech: ['React', 'Three.js', 'Framer Motion', 'Tailwind CSS'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: '/project_3d_portfolio.png',
+      'Full-stack MERN e-commerce platform with payment integration, admin dashboard, and real-time inventory & order management. Includes product catalog, cart, checkout and role-based admin panels.',
+    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'Stripe'],
+    github: 'https://github.com/Kallappa2005/ecommerce-app',
+    live: 'https://example.com/ecommerce',
+    image: '/ecommerce.png',
     featured: true,
-    accent: '#64ffda',
-  },
-  {
-    title: 'E-Commerce Platform',
-    description:
-      'Full-stack e-commerce platform with payment integration, admin dashboard, and real-time inventory management. Built with modern technologies.',
-    tech: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: '/project_ecommerce.png',
     accent: '#a855f7',
   },
   {
-    title: 'AI Chat Application',
+    title: 'Red Wine Quality Prediction (MLOps)',
     description:
-      'Real-time chat application with AI-powered responses. Features include group chats, file sharing, and smart reply suggestions.',
-    tech: ['React', 'Socket.io', 'OpenAI', 'Firebase'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: '/project_ai_chat.png',
-    accent: '#3b82f6',
+      'Production-style MLOps pipeline for predicting red wine quality. Includes data preprocessing, model training, validation, and a CI/CD workflow to deploy models reproducibly.',
+    tech: ['Python', 'scikit-learn', 'Docker', 'MLflow', 'CI/CD'],
+    github: 'https://github.com/Kallappa2005/MLOPS_RED_WINE_QUALITY_PREDICTION',
+    live: 'https://wine-quality-predictor-01.onrender.com/',
+    image: '/winequality.png',
+    accent: '#6ee7b7',
   },
   {
-    title: 'Task Management System',
+    title: 'Kidney Disease Prediction (MLOps)',
     description:
-      'Collaborative task management tool with drag-and-drop functionality, real-time updates, and team collaboration features.',
-    tech: ['React', 'TypeScript', 'PostgreSQL', 'Docker'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: '/project_task_manager.png',
+      'MLOps pipeline and deployed service for kidney disease detection. Automated training pipelines, model monitoring, and a lightweight web interface for inference.',
+    tech: ['Python', 'TensorFlow', 'Docker', 'Kubernetes', 'Prometheus'],
+    github: 'https://github.com/Kallappa2005/MLOPS_KIDNEY_DISEASE_CNN',
+    live: 'https://mlops-kidney-disease-cnn.onrender.com',
+    image: '/kidneydesease.png',
+    accent: '#60a5fa',
+  },
+  {
+    title: 'Employee Management System (DevOps)',
+    description:
+      'DevOps-focused employee management system with CI/CD, containerized services, infrastructure as code, and secure deployment pipelines for scalable team operations.',
+    tech: ['Docker', 'Kubernetes', 'Terraform', 'CI/CD', 'PostgreSQL'],
+    github: 'https://github.com/Kallappa2005/devops-WorkForce-Hub-system',
+    // live: 'https://example.com/employee-management',
+    image: '/employee.png',
     accent: '#f59e0b',
   },
   {
-    title: 'Weather Dashboard',
+    title: 'Researcher & AI Agent for Blog Writing',
     description:
-      'Beautiful weather dashboard with interactive maps, detailed forecasts, and location-based recommendations.',
-    tech: ['React', 'Weather API', 'Chart.js', 'Tailwind'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: '/project_weather.png',
-    accent: '#06b6d4',
+      'An AI-powered assistant that researches topics and drafts blog posts. Integrates retrieval, generation, and human-in-the-loop editing to produce high-quality articles.',
+    tech: ['Python', 'LangChain', 'OpenAI', 'Vector DB'],
+    github: 'https://github.com/Kallappa2005/Researcher_and_AiAgent_For_Blog_Writing',
+    live: 'https://example.com/ai-blog-agent',
+    image: '/aiagent.png',
+    accent: '#ec4899',
   },
   {
-    title: 'Social Media Analytics',
+    title: 'JobShield AI',
     description:
-      'Analytics dashboard for social media metrics with data visualization, trend analysis, and automated reporting.',
-    tech: ['Next.js', 'D3.js', 'Node.js', 'MongoDB'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    image: '/project_analytics.png',
-    accent: '#ec4899',
+      'Fake job detection and security-focused analysis platform. Built with Python and Flask, includes neo4j-based link analysis and heuristics to identify fraudulent job listings.',
+    tech: ['Python', 'Flask', 'Neo4j', 'Security'],
+    github: 'https://github.com/Kallappa2005/JobShield-AI',
+    live: 'https://example.com/jobshield',
+    image: '/project_jobshield.png',
+    accent: '#10b981',
   },
 ];
 
@@ -296,7 +296,7 @@ const Projects = () => {
             <span style={{
               fontFamily: 'JetBrains Mono, monospace',
               color: '#64ffda', fontSize: 20, fontWeight: 600, marginRight: 14,
-            }}>03.</span>
+            }}>04.</span>
             <h2 style={{
               fontSize: 'clamp(28px, 4vw, 44px)',
               fontWeight: 800, color: '#ccd6f6',
@@ -331,7 +331,7 @@ const Projects = () => {
             style={{ textAlign: 'center', marginTop: 64 }}
           >
             <motion.a
-              href="https://github.com"
+              href="https://github.com/kallappa2005?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(100,255,218,0.35)' }}

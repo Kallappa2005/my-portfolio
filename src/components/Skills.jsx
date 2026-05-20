@@ -213,7 +213,7 @@ const Skills = () => {
             <span style={{
               fontFamily: 'JetBrains Mono, monospace',
               color: '#64ffda', fontSize: 20, fontWeight: 600, marginRight: 14,
-            }}>02.</span>
+            }}>03.</span>
             <h2 style={{
               fontSize: 'clamp(28px, 4vw, 44px)',
               fontWeight: 800, color: '#ccd6f6',
