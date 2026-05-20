@@ -167,6 +167,7 @@ const About = () => {
                     background: 'linear-gradient(135deg, rgba(100,255,218,0.1) 0%, rgba(17,34,64,0.8) 50%, rgba(168,85,247,0.1) 100%)',
                   }} />
                   <img
+                    className="about-avatar-img"
                     src="/My%20Photo.jpg"
                     alt="Profile"
                     style={{

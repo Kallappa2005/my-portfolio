@@ -313,7 +313,7 @@ const Projects = () => {
           </p>
 
           {/* Grid */}
-          <div style={{
+          <div className="projects-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
             gap: 28,

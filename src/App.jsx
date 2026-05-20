@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import OpenSource from './components/OpenSource';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import MobileNav from './components/MobileNav';
 import './App.css';
 
 const LoadingScreen = () => (
@@ -122,6 +123,7 @@ function App() {
         <OpenSource />
         <Contact />
       </main>
+      <MobileNav />
       <Footer />
     </div>
   );

@@ -138,21 +138,21 @@ const Experience = () => {
               style={{ display: 'grid', gap: 18 }}
             >
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-start' }}>
-                {offerLetters.map((doc, index) => (
-                  <div
-                    key={doc.label}
-                    className="glass"
-                    style={{
-                      borderRadius: 12,
-                      padding: 10,
-                      border: index === 0 ? '1px solid rgba(100,255,218,0.12)' : '1px solid rgba(168,85,247,0.12)',
-                      width: 300,
-                      maxWidth: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: 8,
-                    }}
-                  >
+                  {offerLetters.map((doc, index) => (
+                    <div
+                      key={doc.label}
+                      className="glass offer-card"
+                      style={{
+                        borderRadius: 12,
+                        padding: 10,
+                        border: index === 0 ? '1px solid rgba(100,255,218,0.12)' : '1px solid rgba(168,85,247,0.12)',
+                        width: 260,
+                        maxWidth: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 8,
+                      }}
+                    >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ color: '#ccd6f6', fontWeight: 600, fontSize: 13 }}>{doc.label}</span>
                       <span style={{ color: '#8892b0', fontSize: 11 }}>Public asset</span>

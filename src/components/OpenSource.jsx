@@ -150,20 +150,20 @@ const OpenSource = () => {
 
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                   {badges.map((badge) => (
-                    <div
-                      key={badge.label}
-                      className="glass"
-                      style={{
-                        borderRadius: 12,
-                        padding: 10,
-                        border: '1px solid rgba(100,255,218,0.12)',
-                        width: 200,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: 8,
-                      }}
-                    >
+                      <div
+                        key={badge.label}
+                        className="glass os-badge"
+                        style={{
+                          borderRadius: 12,
+                          padding: 10,
+                          border: '1px solid rgba(100,255,218,0.12)',
+                          width: 140,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          gap: 8,
+                        }}
+                      >
                       <div style={{ width: 100, height: 75, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <img
                           src={badge.src}
