@@ -11,7 +11,7 @@ const projects = [
       'Full-stack MERN e-commerce platform with payment integration, admin dashboard, and real-time inventory & order management. Includes product catalog, cart, checkout and role-based admin panels.',
     tech: ['MongoDB', 'Express', 'React', 'Node.js', 'Stripe'],
     github: 'https://github.com/Kallappa2005/ecommerce-app',
-    live: 'https://example.com/ecommerce',
+    // live: 'https://github.com/Kallappa2005/ecommerce-app',
     image: '/ecommerce.png',
     featured: true,
     accent: '#a855f7',
@@ -42,7 +42,7 @@ const projects = [
       'DevOps-focused employee management system with CI/CD, containerized services, infrastructure as code, and secure deployment pipelines for scalable team operations.',
     tech: ['Docker', 'Kubernetes', 'Terraform', 'CI/CD', 'PostgreSQL'],
     github: 'https://github.com/Kallappa2005/devops-WorkForce-Hub-system',
-    // live: 'https://example.com/employee-management',
+    // live: 'https://github.com/Kallappa2005/devops-WorkForce-Hub-system',
     image: '/employee.png',
     accent: '#f59e0b',
   },
@@ -52,7 +52,7 @@ const projects = [
       'An AI-powered assistant that researches topics and drafts blog posts. Integrates retrieval, generation, and human-in-the-loop editing to produce high-quality articles.',
     tech: ['Python', 'LangChain', 'OpenAI', 'Vector DB'],
     github: 'https://github.com/Kallappa2005/Researcher_and_AiAgent_For_Blog_Writing',
-    live: 'https://example.com/ai-blog-agent',
+    // live: 'https://github.com/Kallappa2005/Researcher_and_AiAgent_For_Blog_Writing',
     image: '/aiagent.png',
     accent: '#ec4899',
   },
@@ -62,9 +62,19 @@ const projects = [
       'Fake job detection and security-focused analysis platform. Built with Python and Flask, includes neo4j-based link analysis and heuristics to identify fraudulent job listings.',
     tech: ['Python', 'Flask', 'Neo4j', 'Security'],
     github: 'https://github.com/Kallappa2005/JobShield-AI',
-    live: 'https://example.com/jobshield',
-    image: '/project_jobshield.png',
+    // live: 'https://github.com/Kallappa2005/JobShield-AI',
+    image: '/jobsheild.png',
     accent: '#10b981',
+  },
+  {
+    title: 'AI Voice Assistant (Gemini-powered)',
+    description:
+      'A polished voice-activated desktop AI assistant for browser control, webpage analysis, and security-focused code review. Built with Google Gemini 2.5 Flash, plus Ollama and Python for local-first automation.',
+    tech: ['Python', 'Gemini', 'Ollama', 'Voice AI', 'Automation'],
+    github: 'https://github.com/Kallappa2005/VOICE-ASSISTANT',
+    // live: 'https://github.com/Kallappa2005/JobShield-AI',
+    image: '/voiceassistant.png',
+    accent: '#f472b6',
   },
 ];
 
@@ -76,21 +86,21 @@ const ProjectCard = ({ project, index, inView }) => {
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      whileHover={{ y: -12 }}
+      whileHover={{ y: -8 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
         position: 'relative',
-        borderRadius: 20,
+        borderRadius: 22,
         overflow: 'hidden',
-        background: 'rgba(17, 34, 64, 0.7)',
+        background: 'linear-gradient(180deg, rgba(17, 34, 64, 0.92) 0%, rgba(10, 25, 47, 0.82) 100%)',
         backdropFilter: 'blur(16px)',
         border: hovered
           ? `1.5px solid ${project.accent}60`
           : '1.5px solid rgba(255,255,255,0.06)',
         boxShadow: hovered
-          ? `0 0 40px ${project.accent}20, 0 20px 60px rgba(0,0,0,0.4)`
-          : '0 4px 24px rgba(0,0,0,0.2)',
+          ? `0 0 32px ${project.accent}18, 0 16px 40px rgba(0,0,0,0.35)`
+          : '0 4px 20px rgba(0,0,0,0.18)',
         transition: 'all 0.4s cubic-bezier(0.4,0,0.2,1)',
         cursor: 'pointer',
       }}
@@ -115,7 +125,7 @@ const ProjectCard = ({ project, index, inView }) => {
 
       {/* Image */}
       <div style={{
-        position: 'relative', height: 220, overflow: 'hidden',
+        position: 'relative', height: 180, overflow: 'hidden',
       }}>
         <img
           src={project.image}
@@ -142,32 +152,33 @@ const ProjectCard = ({ project, index, inView }) => {
       </div>
 
       {/* Content */}
-      <div style={{ padding: '24px 24px 28px' }}>
+      <div style={{ padding: '18px 20px 20px' }}>
         <h3 style={{
           color: hovered ? project.accent : '#ccd6f6',
-          fontSize: 20, fontWeight: 700,
+          fontSize: 18, fontWeight: 700,
           fontFamily: 'Inter, sans-serif',
-          marginBottom: 10,
+          marginBottom: 8,
           transition: 'color 0.3s ease',
         }}>
           {project.title}
         </h3>
         <p style={{
           color: '#8892b0', fontSize: 14,
-          lineHeight: 1.75, marginBottom: 20,
+          lineHeight: 1.55, marginBottom: 14,
           fontFamily: 'Inter, sans-serif',
-        }}>
+          minHeight: 65,
+        }} className="project-description-clamp">
           {project.description}
         </p>
 
         {/* Tech tags */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 24 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 16 }}>
           {project.tech.map(t => (
             <span
               key={t}
               style={{
-                padding: '4px 12px', borderRadius: 100,
-                fontSize: 11, fontWeight: 600,
+                padding: '3px 10px', borderRadius: 999,
+                fontSize: 10.5, fontWeight: 600,
                 fontFamily: 'JetBrains Mono, monospace',
                 color: project.accent,
                 background: `${project.accent}12`,
@@ -182,71 +193,75 @@ const ProjectCard = ({ project, index, inView }) => {
 
         {/* Action Buttons */}
         <div style={{ display: 'flex', gap: 10 }}>
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              flex: 1,
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-              padding: '10px 16px',
-              borderRadius: 10,
-              textDecoration: 'none',
-              fontSize: 13, fontWeight: 600,
-              fontFamily: 'Inter, sans-serif',
-              color: '#0a192f',
-              background: `linear-gradient(135deg, ${project.accent}, ${project.accent}cc)`,
-              boxShadow: `0 4px 14px ${project.accent}30`,
-              transition: 'all 0.25s ease',
-              letterSpacing: 0.3,
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.boxShadow = `0 6px 20px ${project.accent}55`;
-              e.currentTarget.style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.boxShadow = `0 4px 14px ${project.accent}30`;
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
-            <FiExternalLink size={14} />
-            Live View
-          </a>
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                flex: 1,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                padding: '9px 14px',
+                borderRadius: 10,
+                textDecoration: 'none',
+                fontSize: 12.5, fontWeight: 600,
+                fontFamily: 'Inter, sans-serif',
+                color: '#0a192f',
+                background: `linear-gradient(135deg, ${project.accent}, ${project.accent}cc)`,
+                boxShadow: `0 4px 14px ${project.accent}30`,
+                transition: 'all 0.25s ease',
+                letterSpacing: 0.3,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.boxShadow = `0 6px 20px ${project.accent}55`;
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.boxShadow = `0 4px 14px ${project.accent}30`;
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <FiExternalLink size={14} />
+              Live View
+            </a>
+          )}
 
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              flex: 1,
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-              padding: '10px 16px',
-              borderRadius: 10,
-              textDecoration: 'none',
-              fontSize: 13, fontWeight: 600,
-              fontFamily: 'Inter, sans-serif',
-              color: '#ccd6f6',
-              background: 'rgba(255,255,255,0.05)',
-              border: '1.5px solid rgba(255,255,255,0.1)',
-              transition: 'all 0.25s ease',
-              letterSpacing: 0.3,
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = '#64ffda50';
-              e.currentTarget.style.color = '#64ffda';
-              e.currentTarget.style.background = 'rgba(100,255,218,0.06)';
-              e.currentTarget.style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-              e.currentTarget.style.color = '#ccd6f6';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
-            <FiGithub size={14} />
-            GitHub Repo
-          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                flex: 1,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                padding: '9px 14px',
+                borderRadius: 10,
+                textDecoration: 'none',
+                fontSize: 12.5, fontWeight: 600,
+                fontFamily: 'Inter, sans-serif',
+                color: '#ccd6f6',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1.5px solid rgba(255,255,255,0.1)',
+                transition: 'all 0.25s ease',
+                letterSpacing: 0.3,
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = '#64ffda50';
+                e.currentTarget.style.color = '#64ffda';
+                e.currentTarget.style.background = 'rgba(100,255,218,0.06)';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.color = '#ccd6f6';
+                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <FiGithub size={14} />
+              GitHub Repo
+            </a>
+          )}
         </div>
       </div>
 
@@ -315,8 +330,8 @@ const Projects = () => {
           {/* Grid */}
           <div className="projects-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-            gap: 28,
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: 22,
           }}>
             {projects.map((project, i) => (
               <ProjectCard key={project.title} project={project} index={i} inView={inView} />

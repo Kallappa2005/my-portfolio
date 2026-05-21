@@ -253,6 +253,13 @@ body {
     0 0 20px rgba(168, 85, 247, 0.1);
 }
 
+.project-description-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Skill card glow colors */
 .skill-glow-teal:hover   { box-shadow: 0 0 30px rgba(100, 255, 218, 0.3); }
 .skill-glow-blue:hover   { box-shadow: 0 0 30px rgba(59, 130, 246, 0.3); }
