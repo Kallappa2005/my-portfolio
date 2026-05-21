@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiHeart, FiArrowUp } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiHeart, FiArrowUp } from 'react-icons/fi';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -7,7 +7,6 @@ const Footer = () => {
   const socials = [
     { icon: FiGithub, href: 'https://github.com/kallappa2005', label: 'GitHub', color: '#ccd6f6', hover: '#64ffda' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor-a9a46329b/', label: 'LinkedIn', color: '#ccd6f6', hover: '#0077b5' },
-    { icon: FiTwitter, href: 'https://twitter.com', label: 'Twitter', color: '#ccd6f6', hover: '#1da1f2' },
     { icon: FiMail, href: 'mailto:kallappakabbur874@example.com', label: 'Email', color: '#ccd6f6', hover: '#64ffda' },
   ];
 
@@ -59,7 +58,7 @@ const Footer = () => {
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-              }}>Portfolio</span>
+              }}>Kallappa</span>
               <span style={{ color: '#8892b0' }}>/&gt;</span>
             </div>
             <p style={{
@@ -76,8 +75,10 @@ const Footer = () => {
             {[
               { label: 'Home', href: '#home' },
               { label: 'About', href: '#about' },
+              { label: 'Experience', href: '#experience' },
               { label: 'Skills', href: '#skills' },
               { label: 'Projects', href: '#projects' },
+              { label: 'Open Source', href: '#opensource' },
               { label: 'Contact', href: '#contact' },
             ].map(link => (
               <a

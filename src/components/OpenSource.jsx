@@ -28,14 +28,14 @@ const OpenSource = () => {
         filter: 'blur(60px)', pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: 1400, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 28 }}>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 12 }}>
             <span style={{
               fontFamily: 'JetBrains Mono, monospace',
               color: '#64ffda', fontSize: 20, fontWeight: 600, marginRight: 14,
@@ -49,11 +49,19 @@ const OpenSource = () => {
           </div>
 
           <p style={{
-            color: '#8892b0', fontSize: 16, marginBottom: 44,
-            fontFamily: 'Inter, sans-serif', maxWidth: 760,
+            color: '#8892b0', fontSize: 16, marginBottom: 24,
+            fontFamily: 'Inter, sans-serif', maxWidth: 760, paddingLeft: 50,
           }}>
-            Selected for GSSoC 2026 and actively contributing through open source learning, badges, and selection proof.
+            I participated in GSSoC 2026 , During the program I focused on issue triage, bug fixes, and feature PRs across multiple repositories.
           </p>
+
+          <div style={{ marginBottom: 28, maxWidth: 760 }}>
+            <ul style={{ color: '#ccd6f6', fontSize: 15, lineHeight: 1.8, paddingLeft: 18 }}>
+              <li>Raised <strong>9+</strong> issues across projects such as <em>eventra</em> and <em>ardupilot-log-diagnosis</em>.</li>
+              <li>Opened <strong>7+</strong> pull requests which were reviewed and successfully merged.</li>
+              <li>Recognised globally with a reward of <strong>130 rank</strong> among ~35,000 contributors for active participation.</li>
+            </ul>
+          </div>
 
           <div style={{
             display: 'grid',
@@ -157,7 +165,7 @@ const OpenSource = () => {
                           borderRadius: 12,
                           padding: 10,
                           border: '1px solid rgba(100,255,218,0.12)',
-                          width: 140,
+                          width: 200,
                           display: 'flex',
                           flexDirection: 'column',
                           alignItems: 'center',

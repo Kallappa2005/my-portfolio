@@ -35,14 +35,14 @@ const Experience = () => {
         filter: 'blur(60px)', pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: 1400, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 28 }}>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 12 }}>
             <span style={{
               fontFamily: 'JetBrains Mono, monospace',
               color: '#64ffda', fontSize: 20, fontWeight: 600, marginRight: 14,
@@ -57,7 +57,7 @@ const Experience = () => {
 
           <p style={{
             color: '#8892b0', fontSize: 16, marginBottom: 44,
-            fontFamily: 'Inter, sans-serif', maxWidth: 760,
+            fontFamily: 'Inter, sans-serif', maxWidth: 760, paddingLeft: 50,
           }}>
             Internship experience and project work from my MERN stack role at Anveshana REVA Research Portal.
           </p>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiMail, FiSend, FiPhone, FiMapPin, FiUser, FiMessageSquare } from 'react-icons/fi';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const contactInfo = [
   {
@@ -34,7 +34,6 @@ const contactInfo = [
 const socials = [
   { icon: FaGithub, href: 'https://github.com/kallappa2005', label: 'GitHub', color: '#ccd6f6', hover: '#64ffda' },
   { icon: FaLinkedin, href: 'https://www.linkedin.com/in/kallappa-k-abboor-a9a46329b/', label: 'LinkedIn', color: '#ccd6f6', hover: '#0077b5' },
-  { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter', color: '#ccd6f6', hover: '#1da1f2' },
 ];
 
 const Contact = () => {
