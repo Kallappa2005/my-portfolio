@@ -213,8 +213,7 @@ const Hero = () => {
             fontFamily: 'Inter, sans-serif',
           }}
         >
-          A full-stack developer passionate about building exceptional digital experiences.
-          Specializing in interactive 3D web applications and scalable backend systems.
+          Passionate about software engineering, open source, AI, and building practical technology solutions that create real-world impact and meaningful user experiences.
         </motion.p>
 
         {/* Social Icons */}
