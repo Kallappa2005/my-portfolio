@@ -9,6 +9,7 @@ const navItems = [
   { name: 'Skills',   href: '#skills' },
   { name: 'Projects', href: '#projects' },
   { name: 'Open Source', href: '#opensource' },
+  { name: 'Resume',   href: '#resume' },
   { name: 'Contact',  href: '#contact' },
 ];
 
@@ -22,7 +23,7 @@ const Navbar = () => {
       setScrolled(window.scrollY > 60);
 
       // Active section detection
-      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'opensource', 'contact'];
+      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'opensource', 'resume', 'contact'];
       const current = sections.find(id => {
         const el = document.getElementById(id);
         if (!el) return false;

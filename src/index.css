@@ -351,9 +351,10 @@ body {
     gap: 4px;
     color: #ccd6f6;
     text-decoration: none;
-    font-size: 11px;
-    width: 44px;
-    height: 44px;
+    font-size: 10px;
+    flex: 1;
+    min-width: 0;
+    height: 42px;
   }
   .mobile-nav-item:active, .mobile-nav-item:focus {
     transform: translateY(-2px);

@@ -119,7 +119,7 @@ const Contact = () => {
               <span style={{
                 fontFamily: 'JetBrains Mono, monospace',
                 color: '#64ffda', fontSize: 13, letterSpacing: 3,
-              }}>06. CONTACT</span>
+              }}>07. CONTACT</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}

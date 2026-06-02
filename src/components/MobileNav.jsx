@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlineHome, AiOutlineUser, AiOutlineProject } from 'react-icons/ai';
 import { MdWork } from 'react-icons/md';
 import { FaTools, FaGithub } from 'react-icons/fa';
-import { FiMail } from 'react-icons/fi';
+import { FiMail, FiFileText } from 'react-icons/fi';
 
 const items = [
   { href: '#home', icon: AiOutlineHome, label: 'Home' },
@@ -11,6 +11,7 @@ const items = [
   { href: '#skills', icon: FaTools, label: 'Skills' },
   { href: '#projects', icon: AiOutlineProject, label: 'Projects' },
   { href: '#opensource', icon: FaGithub, label: 'OSS' },
+  { href: '#resume', icon: FiFileText, label: 'Resume' },
   { href: '#contact', icon: FiMail, label: 'Contact' },
 ];
 
