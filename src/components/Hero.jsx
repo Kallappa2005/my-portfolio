@@ -52,7 +52,7 @@ const Hero = () => {
 
   const socials = [
     { icon: FiGithub, href: 'https://github.com/kallappa2005', label: 'GitHub' },
-    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor-a9a46329b/', label: 'LinkedIn' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor/', label: 'LinkedIn' },
     { icon: FiMail, href: 'mailto:kallappakabbur874@email.com', label: 'Email' },
   ];
 

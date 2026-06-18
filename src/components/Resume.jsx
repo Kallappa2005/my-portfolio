@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiDownload, FiExternalLink, FiFileText } from 'react-icons/fi';
 
-const resumeUrl = '/Kallappa-M-Kabboor-Resume.pdf';
+const resumeUrl = '/Resume.pdf';
 
 const Resume = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
