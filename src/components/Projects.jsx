@@ -22,7 +22,7 @@ const projects = [
       'Production-style MLOps pipeline for predicting red wine quality. Includes data preprocessing, model training, validation, and a CI/CD workflow to deploy models reproducibly.',
     tech: ['Python', 'scikit-learn', 'Docker', 'MLflow', 'CI/CD'],
     github: 'https://github.com/Kallappa2005/MLOPS_RED_WINE_QUALITY_PREDICTION',
-    live: 'https://wine-quality-predictor-01.onrender.com/',
+    // live: 'https://wine-quality-predictor-01.onrender.com/',
     image: '/winequality.png',
     accent: '#6ee7b7',
   },
