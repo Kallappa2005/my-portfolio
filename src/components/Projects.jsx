@@ -32,7 +32,7 @@ const projects = [
       'MLOps pipeline and deployed service for kidney disease detection. Automated training pipelines, model monitoring, and a lightweight web interface for inference.',
     tech: ['Python', 'TensorFlow', 'Docker', 'Kubernetes', 'Prometheus'],
     github: 'https://github.com/Kallappa2005/MLOPS_KIDNEY_DISEASE_CNN',
-    live: 'https://mlops-kidney-disease-cnn.onrender.com',
+    // live: 'https://mlops-kidney-disease-cnn.onrender.com',
     image: '/kidneydesease.png',
     accent: '#60a5fa',
   },
