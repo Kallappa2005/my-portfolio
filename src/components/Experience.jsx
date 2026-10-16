@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const highlights = [
-  '6+ months internship in MERN stack',
-  'Worked on Anveshana REVA Research Portal',
-  'Built user-facing features and maintained responsive UI flows',
-  'Collaborated on practical product development in a team setting',
+  'Completed an 8-month Backend Developer Internship at REVA Development Centre, developing features for the Anveshana Research Portal.',
+  'Optimized MongoDB schemas and Redis caching, reducing API response time by 38%.',
+  'Implemented JWT authentication, role-based access control, and REST APIs using Node.js and Express.js.',
+  'Wrote automated API tests using Jest to improve reliability and code quality.',
 ];
 
 const offerLetters = [
@@ -100,14 +100,13 @@ const Experience = () => {
                 color: '#ccd6f6', fontSize: 28, fontWeight: 800,
                 fontFamily: 'Inter, sans-serif', marginBottom: 10,
               }}>
-                MERN Stack Intern
+                Backend Developer
               </h3>
               <p style={{ color: '#64ffda', fontSize: 16, fontWeight: 600, marginBottom: 8 }}>
                 Anveshana REVA Research Portal
               </p>
               <p style={{ color: '#8892b0', fontSize: 15, lineHeight: 1.8, marginBottom: 22 }}>
-                I completed a 6+ month internship focused on MERN stack development, where I worked on
-                research portal features, UI improvements, and practical product development workflows.
+                I completed an 8-month Backend Developer Internship focused on developing scalable REST APIs using Node.js and Express.js, implementing JWT authentication and role-based access control, optimizing MongoDB queries with Redis caching, and improving API reliability through automated testing.
               </p>
 
               <div style={{ display: 'grid', gap: 12 }}>
@@ -127,7 +126,6 @@ const Experience = () => {
                 fontSize: 14,
                 lineHeight: 1.7,
               }}>
-                This section highlights the internship proof documents you already added in the public folder.
               </div>
             </motion.div>
 

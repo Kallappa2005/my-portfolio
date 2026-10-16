@@ -107,8 +107,7 @@ const OpenSource = () => {
                 Selected for GirlScript Summer of Code 2026
               </p>
               <p style={{ color: '#8892b0', fontSize: 15, lineHeight: 1.8, marginBottom: 22 }}>
-                This section shows the selection email and the badge images from the public folder as proof of
-                contribution and selection.
+                Contributed to open-source repositories by identifying bugs, improving code quality, and collaborating with maintainers to deliver reliable fixes and features.
               </p>
 
               <div style={{ display: 'grid', gap: 12 }}>
@@ -118,11 +117,15 @@ const OpenSource = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                   <span style={{ color: '#a855f7', fontWeight: 800, marginTop: 2 }}>▹</span>
-                  <span style={{ color: '#ccd6f6', fontSize: 14, lineHeight: 1.7 }}>Open source learning and badge milestones</span>
+                  <span style={{ color: '#ccd6f6', fontSize: 14, lineHeight: 1.7 }}>Contributed across multiple open-source repositories</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                   <span style={{ color: '#a855f7', fontWeight: 800, marginTop: 2 }}>▹</span>
-                  <span style={{ color: '#ccd6f6', fontSize: 14, lineHeight: 1.7 }}>Selection email and badge screenshots included</span>
+                  <span style={{ color: '#ccd6f6', fontSize: 14, lineHeight: 1.7 }}>Raised issues and submitted merged pull requests</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                  <span style={{ color: '#a855f7', fontWeight: 800, marginTop: 2 }}>▹</span>
+                  <span style={{ color: '#ccd6f6', fontSize: 14, lineHeight: 1.7 }}>Collaborated with maintainers through Git and GitHub workflows</span>
                 </div>
               </div>
             </motion.div>
