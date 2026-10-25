@@ -1,11 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const badges = [
-  { src: '/contributor.png', label: 'Contributor Badge' },
-  { src: '/open.png', label: 'Open Source Badge' },
-];
-
 const OpenSource = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -52,7 +47,7 @@ const OpenSource = () => {
             color: '#8892b0', fontSize: 16, marginBottom: 24,
             fontFamily: 'Inter, sans-serif', maxWidth: 760, paddingLeft: 50,
           }}>
-            I participated in GSSoC 2026 , During the program I focused on issue triage, bug fixes, and feature PRs across multiple repositories.
+            I participated in GSSoC 2026. During the program, I focused on issue triage, bug fixes, and feature pull requests across multiple repositories.
           </p>
 
           <div style={{ marginBottom: 28, maxWidth: 760 }}>
@@ -70,14 +65,17 @@ const OpenSource = () => {
             alignItems: 'start',
           }}>
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="glass"
               style={{
                 borderRadius: 24,
-                padding: 30,
+                padding: 'clamp(24px, 4vw, 36px)',
                 border: '1px solid rgba(168,85,247,0.12)',
+                maxWidth: 900,
+                width: '100%',
+                margin: '0 auto',
               }}
             >
               <div style={{
@@ -126,65 +124,6 @@ const OpenSource = () => {
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                   <span style={{ color: '#a855f7', fontWeight: 800, marginTop: 2 }}>▹</span>
                   <span style={{ color: '#ccd6f6', fontSize: 14, lineHeight: 1.7 }}>Collaborated with maintainers through Git and GitHub workflows</span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              style={{ display: 'grid', gap: 18 }}
-            >
-              <div style={{ display: 'grid', gap: 12 }}>
-                <div
-                  className="glass"
-                  style={{
-                    borderRadius: 14,
-                    padding: 12,
-                    border: '1px solid rgba(168,85,247,0.12)',
-                    maxWidth: 420,
-                  }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                    <span style={{ color: '#ccd6f6', fontWeight: 600 }}>Selection Email</span>
-                    <span style={{ color: '#8892b0', fontSize: 11 }}>Public asset</span>
-                  </div>
-                  <div style={{ width: '100%', height: 180, overflow: 'hidden', borderRadius: 10, background: 'rgba(10,25,47,0.55)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img
-                      src="/email-image.png"
-                      alt="GSSoC selection email"
-                      style={{ width: 'auto', height: '100%', objectFit: 'contain', display: 'block' }}
-                    />
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                  {badges.map((badge) => (
-                      <div
-                        key={badge.label}
-                        className="glass os-badge"
-                        style={{
-                          borderRadius: 12,
-                          padding: 10,
-                          border: '1px solid rgba(100,255,218,0.12)',
-                          width: 200,
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          gap: 8,
-                        }}
-                      >
-                      <div style={{ width: 100, height: 75, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <img
-                          src={badge.src}
-                          alt={badge.label}
-                          style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
-                        />
-                      </div>
-                      <p style={{ color: '#ccd6f6', fontSize: 12, fontWeight: 600, textAlign: 'center', margin: 0 }}>{badge.label}</p>
-                    </div>
-                  ))}
                 </div>
               </div>
             </motion.div>

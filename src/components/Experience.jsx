@@ -1,16 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { FiExternalLink } from 'react-icons/fi';
 
 const highlights = [
   'Completed an 8-month Backend Developer Internship at REVA Development Centre, developing features for the Anveshana Research Portal.',
   'Optimized MongoDB schemas and Redis caching, reducing API response time by 38%.',
   'Implemented JWT authentication, role-based access control, and REST APIs using Node.js and Express.js.',
   'Wrote automated API tests using Jest to improve reliability and code quality.',
-];
-
-const offerLetters = [
-  { src: '/Offer_letter_1.jpeg', label: 'Offer Letter' },
-  { src: '/Offer_letter_2.jpeg', label: '' },
 ];
 
 const Experience = () => {
@@ -69,14 +65,17 @@ const Experience = () => {
             alignItems: 'start',
           }}>
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="glass"
               style={{
                 borderRadius: 24,
-                padding: 30,
+                padding: 'clamp(24px, 4vw, 36px)',
                 border: '1px solid rgba(100,255,218,0.12)',
+                maxWidth: 900,
+                width: '100%',
+                margin: '0 auto',
               }}
             >
               <div style={{
@@ -118,67 +117,28 @@ const Experience = () => {
                 ))}
               </div>
 
-              <div style={{
-                marginTop: 26,
-                paddingTop: 18,
-                borderTop: '1px solid rgba(100,255,218,0.12)',
-                color: '#8892b0',
-                fontSize: 14,
-                lineHeight: 1.7,
-              }}>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              style={{ display: 'grid', gap: 18 }}
-            >
-              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'flex-start' }}>
-                  {offerLetters.map((doc, index) => (
-                    <div
-                      key={doc.label}
-                      className="glass offer-card"
-                      style={{
-                        borderRadius: 12,
-                        padding: 10,
-                        border: index === 0 ? '1px solid rgba(100,255,218,0.12)' : '1px solid rgba(168,85,247,0.12)',
-                        width: 260,
-                        maxWidth: '100%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 8,
-                      }}
-                    >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ color: '#ccd6f6', fontWeight: 600, fontSize: 13 }}>{doc.label}</span>
-                      <span style={{ color: '#8892b0', fontSize: 11 }}>Public asset</span>
-                    </div>
-                    <div style={{
-                      width: '100%',
-                      height: 460,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      overflow: 'hidden',
-                      borderRadius: 10,
-                      background: 'rgba(10,25,47,0.55)'
-                    }}>
-                      <img
-                        src={doc.src}
-                        alt={doc.label}
-                        style={{
-                          width: 'auto',
-                          height: '100%',
-                          objectFit: 'contain',
-                          display: 'block',
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <a
+                href="https://researchportal.reva.edu.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  marginTop: 26,
+                  padding: '11px 18px',
+                  borderRadius: 10,
+                  color: '#64ffda',
+                  border: '1px solid rgba(100,255,218,0.35)',
+                  background: 'rgba(100,255,218,0.06)',
+                  textDecoration: 'none',
+                  fontSize: 13,
+                  fontWeight: 600,
+                }}
+              >
+                Visit REVA Research Portal
+                <FiExternalLink size={14} />
+              </a>
             </motion.div>
           </div>
         </motion.div>

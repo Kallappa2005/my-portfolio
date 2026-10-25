@@ -6,15 +6,24 @@ import { HiSparkles } from 'react-icons/hi';
 
 const projects = [
   {
-    title: 'E-Commerce Platform (MERN)',
+    title: 'Docu-RAG',
     description:
-      'Full-stack MERN e-commerce platform with payment integration, admin dashboard, and real-time inventory & order management. Includes product catalog, cart, checkout and role-based admin panels.',
-    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'Stripe'],
-    github: 'https://github.com/Kallappa2005/ecommerce-app',
-    // live: 'https://github.com/Kallappa2005/ecommerce-app',
-    image: '/ecommerce.png',
+      'Production-style Retrieval-Augmented Generation application for asking questions over documents. Combines FastAPI, LangChain, Groq, HuggingFace embeddings, and ChromaDB for efficient document retrieval and grounded responses.',
+    tech: ['FastAPI', 'LangChain', 'Groq', 'HuggingFace', 'ChromaDB'],
+    github: 'https://github.com/Kallappa2005/DOCU-RAG',
+    image: '/aiagent.png',
     featured: true,
-    accent: '#a855f7',
+    accent: '#64ffda',
+  },
+  {
+    title: 'Researcher & AI Agent for Blog Writing',
+    description:
+      'An AI-powered assistant that researches topics and drafts blog posts. Integrates retrieval, generation, and human-in-the-loop editing to produce high-quality articles.',
+    tech: ['Python', 'LangChain', 'OpenAI', 'Vector DB'],
+    github: 'https://github.com/Kallappa2005/Researcher_and_AiAgent_For_Blog_Writing',
+    // live: 'https://github.com/Kallappa2005/Researcher_and_AiAgent_For_Blog_Writing',
+    image: '/aiagent.png',
+    accent: '#ec4899',
   },
   {
     title: 'Red Wine Quality Prediction (MLOps)',
@@ -37,24 +46,14 @@ const projects = [
     accent: '#60a5fa',
   },
   {
-    title: 'Employee Management System (DevOps)',
+    title: 'E-Commerce Platform (MERN)',
     description:
-      'DevOps-focused employee management system with CI/CD, containerized services, infrastructure as code, and secure deployment pipelines for scalable team operations.',
-    tech: ['Docker', 'Kubernetes', 'Terraform', 'CI/CD', 'PostgreSQL'],
-    github: 'https://github.com/Kallappa2005/devops-WorkForce-Hub-system',
-    // live: 'https://github.com/Kallappa2005/devops-WorkForce-Hub-system',
-    image: '/employee.png',
-    accent: '#f59e0b',
-  },
-  {
-    title: 'Researcher & AI Agent for Blog Writing',
-    description:
-      'An AI-powered assistant that researches topics and drafts blog posts. Integrates retrieval, generation, and human-in-the-loop editing to produce high-quality articles.',
-    tech: ['Python', 'LangChain', 'OpenAI', 'Vector DB'],
-    github: 'https://github.com/Kallappa2005/Researcher_and_AiAgent_For_Blog_Writing',
-    // live: 'https://github.com/Kallappa2005/Researcher_and_AiAgent_For_Blog_Writing',
-    image: '/aiagent.png',
-    accent: '#ec4899',
+      'Full-stack MERN e-commerce platform with payment integration, admin dashboard, and real-time inventory & order management. Includes product catalog, cart, checkout and role-based admin panels.',
+    tech: ['MongoDB', 'Express', 'React', 'Node.js', 'Stripe'],
+    github: 'https://github.com/Kallappa2005/ecommerce-app',
+    // live: 'https://github.com/Kallappa2005/ecommerce-app',
+    image: '/ecommerce.png',
+    accent: '#a855f7',
   },
   {
     title: 'JobShield AI',

@@ -6,7 +6,7 @@ const Footer = () => {
 
   const socials = [
     { icon: FiGithub, href: 'https://github.com/kallappa2005', label: 'GitHub', color: '#ccd6f6', hover: '#64ffda' },
-    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor-a9a46329b/', label: 'LinkedIn', color: '#ccd6f6', hover: '#0077b5' },
+    { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor/', label: 'LinkedIn', color: '#ccd6f6', hover: '#0077b5' },
     { icon: FiMail, href: 'mailto:kallappakabbur874@example.com', label: 'Email', color: '#ccd6f6', hover: '#64ffda' },
   ];
 

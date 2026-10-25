@@ -5,20 +5,21 @@ const skills = [
   'MERN Stack',
   'Machine Learning',
   'MLOps',
-  'DevOps',
   'Agentic AI',
   'React.js',
   'Node.js',
   'Python',
+  'Fast API',
+  'Gen AI',
 ];
 
 const About = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
   const stats = [
     { value: '1+', label: 'Year Experience' },
-    { value: '8+', label: 'Projects' },
+    { value: '7+', label: 'Projects' },
     { value: `${skills.length}+`, label: 'Technologies' },
-    { value: '3rd Year', label: 'B.Tech CSE @ REVA' },
+    { value: 'Final Year', label: 'B.Tech CSE @ REVA' },
   ];
 
   return (
@@ -80,7 +81,7 @@ const About = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
                 {[
                   `I am a passionate developer with experience in MERN stack, machine learning, MLOps, DevOps, and agentic AI. I enjoy building practical products that combine strong engineering with useful automation.`,
-                  `I am currently a 3rd year B.Tech student studying Computer Science and Engineering at REVA University, and I like learning by building real projects end to end.`,
+                  `I am currently a final year B.Tech student studying Computer Science and Engineering at REVA University, and I like learning by building real projects end to end.`,
                   `My focus is on creating scalable, clean, and production-ready applications while improving my skills across full-stack development and intelligent systems.`,
                 ].map((text, i) => (
                   <motion.p
