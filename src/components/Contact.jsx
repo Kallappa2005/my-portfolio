@@ -34,7 +34,7 @@ const contactInfo = [
 
 const socials = [
   { icon: FaGithub, href: 'https://github.com/kallappa2005', label: 'GitHub', color: '#ccd6f6', hover: '#64ffda' },
-  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/kallappa-k-abboor-a9a46329b/', label: 'LinkedIn', color: '#ccd6f6', hover: '#0077b5' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/kallappa-kabboor/', label: 'LinkedIn', color: '#ccd6f6', hover: '#0077b5' },
   { icon: SiLeetcode, href: 'https://leetcode.com/u/kallappa_kabbur/', label: 'LeetCode', color: '#ccd6f6', hover: '#FFA116' },
 ];
 
